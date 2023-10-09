@@ -3,7 +3,6 @@
 int mdc(int x, int y) {
     if (x < y)
         return mdc(y, x);
-
     else {
         if (x % y == 0)
             return y;
@@ -13,13 +12,11 @@ int mdc(int x, int y) {
 }
 
 
-int main(){
+int main() {
     int x, n;
 
     scanf("%d %d", &x, &n);
-
-
     printf("%d", mdc(x, n));
-
+    
     return 0;
 }
