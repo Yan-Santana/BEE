@@ -17,7 +17,7 @@ struct data{
 int main(){
     comp dadosCOMP[MAX];
     data DT[5];
-    int M, A; // M == Mês ; A == Ano ;
+    int M, A; 
 
     for(int i=0; i<5; i++){
         printf("Compromisso: ");
@@ -34,7 +34,5 @@ int main(){
             printf(" %s\n", dadosCOMP[i].compromisso);
         }
     }
-
-
     return 0;
 }
