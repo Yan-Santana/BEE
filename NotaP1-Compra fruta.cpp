@@ -14,62 +14,46 @@ deste produto.
 Saída
 Para cada caso de teste, imprima o valor que será gasto por dona Parcinova no seguinte formato:
 R$ seguido de um espaço e seguido do valor, com 2 casas decimais, conforme o exemplo abaixo.
-
 */
 #include <stdio.h>
 #include <string.h>
 #define MAX 51
 
-
-struct frutas{
+struct frutas {
     char nome[MAX];
     float preco;
 };
 
-
-int main(){
-
-    int q, P, i, quantP, quantF;  // q =quantidade de idas a feira/ m = produtos disponiveis na loja
+int main() {
+    int q, P, i, quantP, quantF;  
     char frut[MAX];
     float total;
 
-    scanf("%d\n", &q);  //Quantidade de idas a feira
-
+    scanf("%d\n", &q); 
     while(q --){
-        scanf("%d", &quantP); // Quantidade de produtos desejados
+        scanf("%d", &quantP); 
+        frutas compra[quantP]; 
 
-        frutas compra[quantP]; // registro recebe o tamanha da quantidade de produtos
-
-        for(i=0; i<quantP; i++) //Popula o registro
-        {
-            scanf(" %s", compra[i].nome); // Nome da fruta
-            scanf("%f", &compra[i].preco);// Preço da fruta
+        for(i=0; i<quantP; i++) {
+            scanf(" %s", compra[i].nome); 
+            scanf("%f", &compra[i].preco);
         }
 
-        scanf("%d", &P); //Quantidade de produtos desejados
-
+        scanf("%d", &P); 
         total = 0.0;
 
-        for(i=0; i< P; i++) //Laço para verificar as frutas
-        {
-            scanf(" %s", frut); //Nome da fruta
-            scanf("%d\n", &quantF);    // Quantidade de frutas na qual ele vai levar
+        for(i=0; i< P; i++) {
+            scanf(" %s", frut);
+            scanf("%d\n", &quantF);    
 
-            for(int j=0; j < quantP; ++j) // Laço p/ percorrer o registro
-            {
-                if (strcmp(compra[j].nome, frut) == 0) // compara para ver se é igual
-                {
-                    total += compra[j].preco * quantF; // Total recebe o calculo
+            for(int j=0; j < quantP; ++j) {
+                if (strcmp(compra[j].nome, frut) == 0) {
+                    total += compra[j].preco * quantF; 
                     break;
                 }
             }
-
         }
         printf("R$ %.2lf\n", total);
-        //q--;
     }
-
-
-
     return 0;
 }
