@@ -4,7 +4,6 @@
 #define NUMQ 5
 #define MAX 100
 
-// Calcular o número de acertos do estudante
 int acertos(char *gab, char *resp){
     int cont =0;
     for(int i=0; gab[i] != '\0'; i++){
@@ -14,21 +13,16 @@ int acertos(char *gab, char *resp){
     return cont;
 }
 
-
-
-int main()
-{
+int main() {
 	char gabarito[NUMQ+1];
 	char respostas[MAX];
 
-	int n;	// numero de alunos
+	int n;	
 	int i, total, cont;
-
-	// leitura do gabarito
+	
 	printf("Informe o gabarito: ");
 	scanf(" %[^\n]", gabarito);
 
-	// leitura das respostas de cada aluno com a impressao do total de acertos
 	printf("Informe quantidade de alunos: ");
 	scanf("%d", &n);
 
@@ -37,6 +31,5 @@ int main()
 	    scanf(" %[^\n]", respostas);
 	    printf("%d\n\n",acertos(gabarito, respostas));
 	}
-
 	return 0;
 }
