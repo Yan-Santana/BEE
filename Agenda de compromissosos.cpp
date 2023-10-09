@@ -6,42 +6,33 @@ Dica: utilize  scanf("%d/%d/%d", &variavel_dia, &variavel_mes, &variavel_ano); p
 #include <stdio.h>
 #define MAX 61
 
-struct comp{ // Registro para guardar a string(texto) do compromisso
-    char compromisso[MAX]; // Até 60 caracteres 
+struct comp{ 
+    char compromisso[MAX];
 };
 
-struct data{ // Registro para guardar a data(dia, mês, ano).
+struct data{ 
     int dia, mes, ano;
 };
 
 int main(){
     comp dadosCOMP[5];
     data DT[5];
-    int Mcial, Acial, Mfinal, Afinal; // M == Mês; A == Ano;
+    int Mcial, Acial, Mfinal, Afinal; 
     
-    for(int i=0; i<5; i++){ //Laço para preencher os dados do Compromisso e datas
-        
-        //printf("Compromisso: ");
+    for(int i=0; i<5; i++){ 
         scanf(" %[^\n]", dadosCOMP[i].compromisso);
-        //printf("Data dia/mes/ano");
         scanf ("%d/%d/%d", &DT[i].dia, &DT[i].mes, &DT[i].ano);
-        //printf("\n");
-        
     }
-    //printf("Data P/ pesquisa (MES/Ano): ");
+    scanf("%d/%d\n", &Mcial, &Acial); 
+    scanf("%d/%d\n", &Mfinal, &Afinal); 
     
-    scanf("%d/%d\n", &Mcial, &Acial); // Data p/ filtragem de Compromissos
-    scanf("%d/%d\n", &Mfinal, &Afinal); // Data p/ filtragem de Compromissos
-    
-    for(int i=0; i<5; i++){ // Vai verificar os Compromissos no struct(registro)
+    for(int i=0; i<5; i++){ 
         if(Mcial == DT[i].mes && Acial == DT[i].ano)
             printf("%s\n", dadosCOMP[i].compromisso);
     }
     for(int i=0; i<5; i++){
         if(Mfinal == DT[i].mes && Afinal == DT[i].ano)
             printf("%s\n", dadosCOMP[i].compromisso);
-    }
-    
-    
+    }  
     return 0;
 }
