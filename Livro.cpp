@@ -1,14 +1,11 @@
 #include <stdio.h>
 #define MAX 30
 
-// Definição de tipos
-struct tLivro
-{
+struct tLivro {
     char titulo[MAX], autor[MAX];
     int ano;
 };
 
-// Função para cadastrar um livro
 void cadLivro(int n, tLivro v[]){
     printf("\nTitulo: ");
 	scanf(" %[^\n]", v[n].titulo);
@@ -16,15 +13,13 @@ void cadLivro(int n, tLivro v[]){
 	scanf(" %[^\n]", v[n].autor);
 	printf("Ano: ");
 	scanf("%d", &v[n].ano);
-    // inclementando no número e livros cadastrados
     n++;
 }
 
-//função para imprimir os dados dos livros de um certo ano informado pelo usuario 
 void listaporAno(int ano, int n, tLivro v[]){
     int aux = 0;
-    for(int i=0; i<n; i++){
-        if(ano == v[i].ano){
+    for(int i=0; i<n; i++) {
+        if(ano == v[i].ano) {
             printf("%s, %s, %d\n", v[i].titulo, v[i].autor, v[i].ano);
             aux++;
         }
@@ -33,11 +28,10 @@ void listaporAno(int ano, int n, tLivro v[]){
         printf("Nenhum livro encontrado!");
 }
 
-// Função para procurar todos os nomes que começam com uma certa letra
-void listaPorLetra(char letra, int n, tLivro v[]){
+void listaPorLetra(char letra, int n, tLivro v[]) {
     int aux=0;
-    for(int i=0; i<n; i++){
-        if(letra == v[i].autor[0]){
+    for(int i=0; i<n; i++) {
+        if(letra == v[i].autor[0]) {
             printf("%s, %s, %d.\n", v[i].titulo, v[i].autor, v[i].ano);
             aux++;
         }
@@ -47,8 +41,7 @@ void listaPorLetra(char letra, int n, tLivro v[]){
     }
 }
 
-// Função para imprimir MENU
-void menu(){
+void menu() {
     printf("\n\n1 - Cadastrar um livro");
 	printf("\n2 - Listar livros por ano");
 	printf("\n3 - Listar por inicial do nome do autor");
@@ -57,23 +50,19 @@ void menu(){
 	printf("\nDigite sua opcao: ");
 }
 
-// Função para imprimir todos os livros cadastrados
-void imprimir(int n, tLivro v[]){
-
-    for(int i=0; i<n; i++){
+void imprimir(int n, tLivro v[]) {
+    for(int i=0; i<n; i++) {
         printf("%s, %s, %d.\n", v[i].titulo, v[i].autor, v[i].ano);
     }
     printf("\n\n");
 }
 
-// Função principal!+
 int main(){
     tLivro vetor[MAX];
-    int n=0, ano, opcao; // n = quantidade de livros cadastrados
+    int n=0, ano, opcao; 
     char letraa;
 
     do{
-        //Chamo a função para imprimir o menu
         menu();
         scanf("%d", &opcao);
         
@@ -98,10 +87,3 @@ int main(){
 
     return 0;
 }
-
-
-
-
-
-
-
